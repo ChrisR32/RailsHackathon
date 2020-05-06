@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  expense: one
+  date: 2020-05-07
+  notes: MyText
+  amount: 1
+  debit: false
+
+two:
+  expense: two
+  date: 2020-05-07
+  notes: MyText
+  amount: 1
+  debit: false
