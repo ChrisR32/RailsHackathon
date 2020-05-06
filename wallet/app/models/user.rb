@@ -3,5 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :expenses
+
+
+  validates :firstname, presence: true, length: {maximum: 50}
+  validates :lastname, presence: true, length: {maximum: 50}
+  has_many :expenses 
+
 end
