@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :expenses do
      resources :expense_occurrence
   end
+
+  resources :payments, :pay_expenses
 end
