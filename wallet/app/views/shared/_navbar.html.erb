@@ -11,7 +11,7 @@
 
 
           
-            <li><a class="navbar-brand" href="#">Wallet</a></li>
+            <a style="color: #ff5a5f; font-size: 2em; font-weight: 400; line-height: 2.3em; text-decoration: none;" ><img src="/wallet3.png" height="40" style="margin-top: -10px"alt="" > Wallet</a>
 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -21,16 +21,16 @@
 
 
             <% if (!user_signed_in?) %>
-              <li>
+              <li style="margin-top: 10px;">
               <%= link_to "Login", new_user_session_path %>
               </li>
-              <li>
-              <%= link_to "Sign Up", new_user_registration_path %>
+              <li style="margin-top: 10px;">
+              <%= link_to "Sign up", new_user_registration_path %>
               </li>
             <% else %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag("/user.png", class: "img_small", style: 'display:inline' ) %>&nbsp;
+              <%= image_tag("/user.png", class: "avatar_small", style: 'display:inline' ) %>&nbsp;
               <%= current_user.firstname %> <%= current_user.lastname %> <span class="caret"></span></a>
 
               <ul class="dropdown-menu">
