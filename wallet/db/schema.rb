@@ -9,8 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2020_05_06_202005) do
 
+ActiveRecord::Schema.define(version: 2020_05_07_061931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 2020_05_06_202005) do
     t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
+  create_table "pay_expenses", force: :cascade do |t|
+    t.bigint "payment_id"
+    t.bigint "expense_occurence_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expense_occurence_id"], name: "index_pay_expenses_on_expense_occurence_id"
+    t.index ["payment_id"], name: "index_pay_expenses_on_payment_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.date "date"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -55,4 +73,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_202005) do
 
   add_foreign_key "expense_occurences", "expenses"
   add_foreign_key "expenses", "users"
+  add_foreign_key "pay_expenses", "expense_occurences"
+  add_foreign_key "pay_expenses", "payments"
+  add_foreign_key "payments", "users"
 end
