@@ -12,6 +12,7 @@ class ExpensesController < ApplicationController
     end
 
     def new
+        @heading = "Create new expense"
         @expense = Expense.new
     end
 
@@ -21,6 +22,7 @@ class ExpensesController < ApplicationController
     end           
 
     def edit
+        @heading = "Edit this expense"
         puts "IN EDIT: "
         p @expense
         
