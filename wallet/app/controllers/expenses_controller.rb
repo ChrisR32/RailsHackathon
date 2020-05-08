@@ -3,7 +3,8 @@ class ExpensesController < ApplicationController
     before_action :set_user_expense, only: [ :show, :edit, :update, :destroy]
 
     def index
-        @expenses = Expense.all
+        puts "IN INDEX: "
+        p @expenses = Expense.all
     end
 
     def show
@@ -46,7 +47,7 @@ class ExpensesController < ApplicationController
         puts "IN DESTROY: "
         p @expense
         
-        if @expense
+        if @expense != nil
             @expense.destroy
         end
         redirect_to expenses_path
@@ -64,9 +65,9 @@ class ExpensesController < ApplicationController
         
         p @expense= current_user.expenses.find_by_id(params[:id])
 
-        # if @expense == nil
-        #     redirect_to expense_path
-        # end
+        if @expense == nil
+            redirect_to expense_path
+        end
     end
 
     def rerender_if_error(template_name)

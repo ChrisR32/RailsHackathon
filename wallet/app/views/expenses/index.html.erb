@@ -1,44 +1,22 @@
-<h1>Your Wallet</h1>
+<h1>Your expenses</h1>
 <%= link_to "create expense", new_expense_path %>
+
 <div class="expenses">
 <% for expense in @expenses %>
     <div class="expense">
-        <%# <%= image_tag expense.picture if expense.picture.attached? %> %>
         <div class="info">
             <div class="info-bar">
-                <div>$<%= expense.title %></div>
-                <div><%= expense.description %></div>
-                <div><%= expense.date_start %></div>
-            </div>
-            <%= link_to expense.title, expense_path(expense.id)%>
-            <div><%= expense.description %>p</div>
-                        <br/>
-
-        </div>
-
-        <% if current_user.id == expense.user_id%>
-
-
-
+            <div><%= link_to expense.title, expense_path(expense.id)%></div>
+            <div><%= expense.description %></div>
+            <div><%= expense.date_start %></div>
+            <%= link_to "edit", edit_expense_path(expense.id), class: "icon" %>
             <%= form_with model: expense, local: true, method: "delete" do |form| %>
                 <div class="modify-icons">
-                    <%= submit_tag "delete", class: "icon" %>
-                    <%= link_to "edit", edit_expense_path(expense.id), class: "icon" %>
+                    <%= submit_tag "remove", class: "icon" %>
                 </div>
             <% end %>
-
-
-
-
-
-
-
-            
-        <% end %>
-
-
-
-
+            </div>
+        </div>
     </div>
 <% end %>
 </div>
