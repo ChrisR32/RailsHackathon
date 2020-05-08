@@ -1,22 +1,31 @@
-<%= @expense.title %>
+<h1><%= @expense.title %></h1>
 <%# <% if @expense.picture.attached? %>
     <%# <%= image_tag  @expense.picture, style: "width: 200px"%>
 <%# <% end %> 
-<br />
+<br/>
+<a>Description:</a>
 <%= @expense.description %>
 <br/>
-Seller's email: <%= @expense.user.email %>
+<a>Times: </a><%= @expense.times %>
+<br/>
+<a>How Often: </a><%= @expense.recur %>
+<br/>
+<a>Starts: </a><%= @expense.date_start %>
+<br/>
+<a>Until: </a><%= @expense.date_end %>
+<br/>
 <br/>
 
 <% if current_user.id == @expense.user_id%>
-    <%= link_to "edit", edit_expense_path(@expense.id) %>
 
+    <%= link_to "edit", edit_expense_path(@expense.id), class: "btn btn-normal"  %>
+    <br/>
+<br/>
  <%= form_with model: @expense, local: true, method: "delete" do |form| %>
-        <%= submit_tag "delete" %>
-    <% end %>
+        <%= submit_tag "delete", class: "btn btn-normal"  %>
+        
+     <% end %>
 <% end %>
 
-<p>
-    <%= @expense.description %>
-</p>
-
+<br/>
+<%= link_to "New", new_expense_path, class: "btn btn-normal"  %>
