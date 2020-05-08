@@ -1,2 +1,22 @@
-<h1>Expenses#show</h1>
-<p>Find me in app/views/expenses/show.html.erb</p>
+<%= @expense.title %>
+<%# <% if @expense.picture.attached? %>
+    <%# <%= image_tag  @expense.picture, style: "width: 200px"%>
+<%# <% end %> 
+<br />
+<%= @expense.description %>
+<br/>
+Seller's email: <%= @expense.user.email %>
+<br/>
+
+<% if current_user.id == @expense.user_id%>
+    <%= link_to "edit", edit_expense_path(@expense.id) %>
+
+ <%= form_with model: @expense, local: true, method: "delete" do |form| %>
+        <%= submit_tag "delete" %>
+    <% end %>
+<% end %>
+
+<p>
+    <%= @expense.description %>
+</p>
+
