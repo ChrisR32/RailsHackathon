@@ -24,13 +24,13 @@ Rails.application.routes.draw do
   devise_for :users
   # get "/", to: "pages#home", as: "root"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   
   # resources :expenses do
   #    resources :expense_occurrence
   # end
 
   # resources :payments, :pay_expenses
+
 
   get "/expenses", to: "expenses#index", as: "expenses"
   post "/expenses", to: "expenses#create"

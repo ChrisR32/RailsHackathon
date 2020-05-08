@@ -4,6 +4,6 @@ class PagesController < ApplicationController
   end
 
   def not_found
-    render plain: "not found"
+      render plain: "not found"
   end
 end
