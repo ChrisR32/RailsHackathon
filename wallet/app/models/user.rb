@@ -4,12 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   validates :firstname, presence: true, length: {maximum: 50}
   validates :lastname, presence: true, length: {maximum: 50}
-<<<<<<< Updated upstream
- 
-=======
-  has_many :expenses, dependent: :destroy
 
->>>>>>> Stashed changes
+  
+  has_many :expenses, dependent: :destroy
+  has_many :payments, dependent: :destroy
+
 end
