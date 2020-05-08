@@ -1,4 +1,5 @@
 class Expense < ApplicationRecord
+    attr_accessor :recurring 
     belongs_to :user
    
     # validates :title, :description, :date_end, :date_start, :times, :recur, prescence: true

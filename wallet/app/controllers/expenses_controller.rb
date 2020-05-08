@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
     before_action :authenticate_user!
     before_action :set_user_expense, only: [ :show, :edit, :update, :destroy]
+    before_action :set_recurring, only: [ :new, :edit, :update ]
 
     def index
         @expenses = Expense.all
@@ -13,12 +14,19 @@ class ExpensesController < ApplicationController
 
     def new
         @heading = "Create new expense"
+        
         @expense = Expense.new
     end
 
     def create
+        is_recurring = params["expense"]["recurring"]
+        puts "Is recurring: #{is_recurring}"
+
         @expense = current_user.expenses.create(expense_params)
         rerender_if_error("new")
+
+        
+
     end           
 
     def edit
@@ -54,6 +62,9 @@ class ExpensesController < ApplicationController
 
     private
 
+    def set_recurring
+        @recurring = false
+    end
 
     def set_expense
         @expense = Expense.find(params[:id])

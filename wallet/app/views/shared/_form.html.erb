@@ -23,38 +23,33 @@
         <%= form.text_area :description, value: @expense.description, class: "form-control", required: true %>
     </div>
   
-             
+    <div class="form-group">
+        <label>Date</label>
+        <%= form.date_field :date_start, value: @expense.date_start, class: "form-control", required: true %>
+    </div>
+  
+
+    <div class="form-group">
+        <label>Is this recurring?</label>
+        <%= form.check_box :recurring %>
+    </div>
+
     <div class="form-group">
         <label>How Often?</label>
         <%= form.select :recur, [["Once", 0], ["Daily", 1], ["Weekly", 7], ["Fortnightly", 14], ["Monthly", 28], ["Quarterly", 90], ["Biannual", 182], ["Annual", 365]], 
                                      id: "recur", prompt: "Select...", class: "form-control" %>
     </div>
    
-              
-    <div class="form-group">
-        <label>Times</label>
-        <%= form.number_field :times, min: 0, value: @expense.times, class: "form-control" %>
+    <div>          
+        <div>
+            <label>How many times</label><%= form.number_field :times, min: 0, value: @expense.times, class: "form-control" %>
+        
+            <label>...or ending by date</label><%= form.date_field :date_end, value: @expense.date_end, class: "form-control" %>
+        </div>
     </div>
-  
-                
-    <div class="form-group">
-        <label>Start Date</label>
-        <%= form.date_field :date_start, value: @expense.date_start, class: "form-control", required: true %>
-    </div>
-  
-               
-    <div class="form-group">
-        <label>End Date</label>
-        <%= form.date_field :date_end, value: @expense.date_end, class: "form-control", required: true %>
-    </div>
- 
 
-   <%# <div> %>
-        <%# <%= form.label :picture %> 
-       <%# <%= form.file_field :picture, accept: "image/png,image/gif,image/jpeg,image/jpg", value: @expense.picture %>
-  <%# </div>  %>
-
-   
+        <br/>
+        <br/>
         <%= form.submit "Create", class: "btn btn-normal btn-block" %>
         <br/>
         <br/>
