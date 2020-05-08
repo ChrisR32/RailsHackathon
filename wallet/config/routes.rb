@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
- 
   get 'pages/home'
+
   devise_for :users
   # get "/", to: "pages#home", as: "root"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/expenses/:id", to: "expenses#show", as: "expense"
   put "/expenses/:id", to: "expenses#update"
   patch "/expenses/:id", to: "expenses#update"
-  delete "/expenses/:id", to: "expenses#destroy"
+  delete "/expenses/:id", to: "expenses#destroy", as: "delete_expense"
   get "/expenses/:id/edit", to: "expenses#edit", as: "edit_expense"
 
   get "*path", to: "pages#not_found"
