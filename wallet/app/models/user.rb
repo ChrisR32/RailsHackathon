@@ -6,5 +6,10 @@ class User < ApplicationRecord
 
   validates :firstname, presence: true, length: {maximum: 50}
   validates :lastname, presence: true, length: {maximum: 50}
+<<<<<<< Updated upstream
  
+=======
+  has_many :expenses, dependent: :destroy
+
+>>>>>>> Stashed changes
 end

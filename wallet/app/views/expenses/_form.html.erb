@@ -1,0 +1,72 @@
+<% if @expense.errors.any? %>
+    <div class="errors">
+        <% @expense.errors.full_messages.each do |error| %>
+            <p><%= toastr.error(error) %></p>
+        <% end %>
+    </div>
+<% end %>
+
+
+
+<%= form_for @expense, local: true do |form| %>
+    <div class="row">
+  <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+       <br/><br/>
+    <div class="form-group-a">
+        <label>Title</label>
+        <%= form.text_field :title, value: @expense.title, class: "form-control", required: true %>
+    </div>
+   
+          
+    <div class="form-group-a">
+        <label>Description</label>
+        <%= form.text_area :description, value: @expense.description, class: "form-control", required: true %>
+    </div>
+  
+             
+    <div class="form-group-a">
+        <label>Recur</label>
+        <%= form.select :recur, [["Once", 0], ["Daily", 1], ["Weekly", 7], ["Fortnightly", 14], ["Monthly", 28], ["Quarterly", 90], ["Biannual", 182], ["Annual", 365]], 
+                                     id: "recur", prompt: "Select...", class: "form-control" %>
+    </div>
+   
+              
+    <div class="form-group-a">
+        <label>Times</label>
+        <%= form.number_field :times, min: 0, value: @expense.times, class: "form-control", required: true %>
+    </div>
+  
+                
+    <div class="form-group-a">
+        <label>Start Date</label>
+        <%= form.date_field :date_start, value: @expense.date_start, class: "form-control", required: true %>
+    </div>
+  
+               
+    <div class="form-group-a">
+        <label>End Date</label>
+        <%= form.date_field :date_end, value: @expense.date_end, class: "form-control", required: true %>
+    </div>
+ 
+
+   <div>
+        <%= form.label :picture %>
+       <%# <%= form.file_field :picture, accept: "image/png,image/gif,image/jpeg,image/jpg", value: @expense.picture %>
+  </div> 
+
+   
+        <%= form.submit "Submit", class: "btn btn-normal-2" %>
+        <br/>
+        <br/>
+    </div>
+    <br/>
+
+    
+    
+   </div>
+  </div>
+
+<% end %>
+
+    
