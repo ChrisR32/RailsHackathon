@@ -7,3 +7,4 @@ The wallet is an application that allows users to easily manage and organise the
 ![Wireframe](/docs/Wallet_DB_frame4.png)
 ![Wireframe](/docs/Wallet_DB_frame5.png)
 ![Wireframe](/docs/Wallet_DB_frame6.png)
+![Wireframe](/docs/Wallet_DB_frame6.png)
