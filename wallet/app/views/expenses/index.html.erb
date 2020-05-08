@@ -6,15 +6,15 @@
     <div class="expense">
         <div class="info">
             <div class="info-bar">
-            <div><%= link_to expense.title, expense_path(expense.id)%></div>
-            <div><%= expense.description %></div>
-            <div><%= expense.date_start %></div>
-            <%= link_to "edit", edit_expense_path(expense.id), class: "icon" %>
-            <%= form_with model: expense, local: true, method: "delete" do |form| %>
-                <div class="modify-icons">
-                    <%= submit_tag "remove", class: "icon" %>
-                </div>
-            <% end %>
+                <div><%= link_to expense.title, expense_path(expense.id)%></div>
+                <div><%= expense.description %></div>
+                <div><%= expense.date_start %></div>
+                <%= link_to "edit", edit_expense_path(expense.id), class: "icon" %>
+                <%= form_with model: expense, local: true, method: "delete" do |form| %>
+                    <div class="modify-icons">
+                        <%= submit_tag "remove", class: "icon" %>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
