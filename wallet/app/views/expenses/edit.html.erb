@@ -12,7 +12,7 @@
 
 <%= form_for @expense, local: true do |form| %>
 
-                    <div class="form-group">
+    <div class="form-group">
         <label>Title</label>
         <%= form.text_field :title, value: @expense.title, class: "form-control", required: true %>
     </div>
@@ -33,7 +33,7 @@
               
     <div class="form-group">
         <label>Times</label>
-        <%= form.number_field :times, min: 0, value: @expense.times, class: "form-control", required: true %>
+        <%= form.number_field :times, min: 0, value: @expense.times, class: "form-control" %>
     </div>
   
                 
@@ -45,7 +45,7 @@
                
     <div class="form-group">
         <label>End Date</label>
-        <%= form.date_field :date_end, value: @expense.date_end, class: "form-control", required: true %>
+        <%= form.date_field :date_end, value: @expense.date_end, class: "form-control" %>
     </div>
  
 
